@@ -10,6 +10,9 @@ def is_game_over():
     return guessed == WORDS_TO_WIN or errors == ERRORS_TO_LOSE
 
 
+ def game_is_lost():
+     print(f"I'm sorry, but you lost.LOSER! You've made {ERRORS_TO_LOSE} mistakes. your words: {guesses}")
+
 
 guessed = 0
 errors = 0
@@ -35,6 +38,8 @@ while not is_game_over():
     if guess in full_list:
         guessed += 1
         guesses.append(guess)
+    if guessed == ERRORS_TO_LOSE:
+        game_is_lost()
     if guessed == WORDS_TO_WIN:
             congratulate_user()
             exit()
